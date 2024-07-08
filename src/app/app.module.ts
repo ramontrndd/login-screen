@@ -37,12 +37,15 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   "pbDirection": "ltr",
   "pbThickness": 3,
   "hasProgressBar": true,
-  "text": "Analisando seu dados...",
+  "text": "Carregando...",
   "textColor": "#4d6eff",
   "textPosition": "center-center",
   "maxTime": -1,
   "minTime": 300
 }
+
+
+
 
 @NgModule({
   declarations: [
@@ -55,7 +58,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig, ),
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
