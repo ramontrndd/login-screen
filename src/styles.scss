@@ -2,3 +2,36 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// STYLE SNACK BAR
+
+.mat-mdc-snack-bar-container {
+  &.green-snackbar {
+    --mdc-snackbar-container-color: #4d6eff !important;
+    --mat-mdc-snack-bar-button-color: #fff !important;
+    --mdc-snackbar-supporting-text-color: #fff !important;
+  }
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.mat-mdc-snack-bar-container {
+  &.black-snackbar {
+    --mdc-snackbar-container-color: black !important;
+    --mat-mdc-snack-bar-button-color: #fff !important;
+    --mdc-snackbar-supporting-text-color: #fff !important;
+  }
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.mat-snack-bar-container {
+  margin-right: auto !important;
+  margin-left: auto !important;
+  width: 40vw !important;
+  min-width: 90% !important;
+  max-width: 100vw !important;
+  margin-top: 70px !important;
+  padding: 20px !important;
+}
