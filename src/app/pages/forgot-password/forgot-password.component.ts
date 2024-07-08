@@ -1,68 +1,49 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
-
+import { SnackbarService } from '../../services/snackbar.service';
 import { GlobalConstants } from '../../../shared/global-constants';
-import { SnackbarService } from './../../services/snackbar.service';
-import { UserService } from './../../services/user.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.scss',
+  selector: 'app-forgot-password',
+  templateUrl: './forgot-password.component.html',
+  styleUrl: './forgot-password.component.scss'
 })
-export class RegisterComponent implements OnInit {
-  registerForm: any = FormGroup;
+export class ForgotPasswordComponent implements OnInit {
+  forgotPasswordForm: any = FormGroup;
   responseMessage: any;
-  hide:boolean = true;
+
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router,
-    private UserService: UserService,
-    private dialogRef: MatDialogRef<RegisterComponent>,
+    private dialogRef: MatDialogRef<ForgotPasswordComponent>,
+    private useService: UserService,
     private ngxService: NgxUiLoaderService,
     private snackbarService: SnackbarService
   ) {}
 
   ngOnInit(): void {
-    this.registerForm = this.formBuilder.group({
-      name: [
-        null,
-        [Validators.required, Validators.pattern(GlobalConstants.nameRegex)],
-      ],
+    this.forgotPasswordForm = this.formBuilder.group({
       email: [
         null,
         [Validators.required, Validators.pattern(GlobalConstants.emailRegex)],
       ],
-      contactNumber: [
-        null,
-        [
-          Validators.required,
-          Validators.pattern(GlobalConstants.contactNumberRegex),
-        ],
-      ],
-      password: [null, [Validators.required, Validators.minLength(6)]],
     });
   }
 
-  handleSubmit(){
+  handleSubmit() {
     this.ngxService.start();
-    var formData = this.registerForm.value;
+    var formData = this.forgotPasswordForm.value;
     var data = {
-      name: formData.name,
       email: formData.email,
-      contactNumber: formData.contactNumber,
-      password: formData.password,
     };
-    this.UserService.register(data).subscribe(
+    this.useService.forgotPassword(data).subscribe(
       (response: any) => {
         this.ngxService.stop();
+        this.responseMessage = response?.message;
         this.dialogRef.close();
-        this.responseMessage = response.message;
         this.snackbarService.openSnackbar(this.responseMessage, '');
-        this.router.navigate(['/']);
       },
       (error) => {
         this.ngxService.stop();

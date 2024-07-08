@@ -10,7 +10,8 @@ import { MaterialModule } from '../shared/material-module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   "bgsColor": "#4d6eff",
@@ -47,7 +48,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   declarations: [
     AppComponent,
     HeaderComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForgotPasswordComponent
 
   ],
   imports: [

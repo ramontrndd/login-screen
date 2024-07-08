@@ -1,6 +1,5 @@
 mat-form-field {
   width: 100%;
-  margin: 10 5px;
 }
 .mat-toolbar-row {
   justify-content: center;
@@ -11,4 +10,7 @@ mat-form-field {
 
 span {
   margin-top: 3px;
+}
+.mdc-dialog, .mdc-dialog__content {
+  padding: 10px 10px;
 }
