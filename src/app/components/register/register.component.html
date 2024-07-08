@@ -1,0 +1,67 @@
+
+  <mat-toolbar color="primary animate__animated animate__zoomIn animate__faster">
+    <mat-toolbar-row
+      ><span class="title-center">Registre-se</span>
+    </mat-toolbar-row
+    >
+  </mat-toolbar>
+
+
+  <mat-dialog-content class="animate__animated animate__zoomIn animate__faster">
+  <form [formGroup]="registerForm">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Digite seu nome</mat-label>
+        <input matInput formControlName="name" placeholder="Ex: João, Maria"/>
+        <mat-icon matSuffix>person</mat-icon>
+        @if (registerForm.controls.name.touched && registerForm.controls.name.invalid) { <mat-error>
+           @if (registerForm.controls.name.errors.required) {<span>Nome é obrigatório</span>}
+           @if (registerForm.controls.name.errors.pattern) {<span>Este campo é inválido</span>}
+        </mat-error>
+
+        }
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email"  placeholder="Ex: joao@seudominio.com" />
+        <mat-icon matSuffix>email</mat-icon>
+        @if (registerForm.controls.email.touched && registerForm.controls.email.invalid) {
+          <mat-error>
+           @if (registerForm.controls.email.errors.required) {<span>Nome é obrigatório</span>}
+           @if (registerForm.controls.email.errors.pattern) {<span>Este campo é inválido</span>}
+        </mat-error>
+
+        }
+      </mat-form-field>
+       <mat-form-field appearance="outline">
+        <mat-label>Telefone</mat-label>
+        <input matInput formControlName="contactNumber" placeholder="Ex: 96 98888 8888"/>
+        <mat-icon matSuffix>phone</mat-icon>
+        @if (registerForm.controls.contactNumber.touched && registerForm.controls.contactNumber.invalid) {
+          <mat-error>
+            @if (registerForm.controls.contactNumber.errors.required) {<span>Nome é obrigatório</span>}
+            @if (registerForm.controls.contactNumber.errors.pattern) {<span>Este campo é inválido</span>}
+          </mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" />
+        <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        @if (registerForm.controls.password.touched && registerForm.controls.password.invalid) {
+          <mat-error>
+            @if (registerForm.controls.password.errors.required) {<span>Nome é obrigatório</span>}
+            @if (registerForm.controls.password.errors.pattern) {<span>Este campo é inválido</span>}
+          </mat-error>
+        }
+      </mat-form-field>
+    </div>
+  </form>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="center" class="btn-submit">
+    <button  mat-raised-button color="primary" type="submit" (click)="handleSubmit()" [disabled]="!(registerForm.valid && registerForm.dirty)">Registre-se</button>
+    <button  mat-raised-button color="primary" mat-dialog-close>Fechar</button>
+   </mat-dialog-actions>
+
+
