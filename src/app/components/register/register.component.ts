@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
           Validators.pattern(GlobalConstants.contactNumberRegex),
         ],
       ],
-      password: [null, [Validators.required]],
+      password: [null, [Validators.required, Validators.minLength(6)]],
     });
   }
 

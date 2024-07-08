@@ -27,7 +27,7 @@
         <mat-icon matSuffix>email</mat-icon>
         @if (registerForm.controls.email.touched && registerForm.controls.email.invalid) {
           <mat-error>
-           @if (registerForm.controls.email.errors.required) {<span>Nome é obrigatório</span>}
+           @if (registerForm.controls.email.errors.required) {<span>Email é obrigatório!</span>}
            @if (registerForm.controls.email.errors.pattern) {<span>Este campo é inválido</span>}
         </mat-error>
 
@@ -39,19 +39,19 @@
         <mat-icon matSuffix>phone</mat-icon>
         @if (registerForm.controls.contactNumber.touched && registerForm.controls.contactNumber.invalid) {
           <mat-error>
-            @if (registerForm.controls.contactNumber.errors.required) {<span>Nome é obrigatório</span>}
+            @if (registerForm.controls.contactNumber.errors.required) {<span>Numéro obrigátorio!</span>}
             @if (registerForm.controls.contactNumber.errors.pattern) {<span>Este campo é inválido</span>}
           </mat-error>
         }
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Senha</mat-label>
-        <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" />
+        <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" required/>
         <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility' : 'visibility_off'}}</mat-icon>
         @if (registerForm.controls.password.touched && registerForm.controls.password.invalid) {
           <mat-error>
-            @if (registerForm.controls.password.errors.required) {<span>Nome é obrigatório</span>}
-            @if (registerForm.controls.password.errors.pattern) {<span>Este campo é inválido</span>}
+            @if (registerForm.controls.password.errors.required) {<span>Senha obrigátoria!</span>}
+            @if (registerForm.controls.password.errors.minlength) {<span>Mínimo 6 dígitos</span>}
           </mat-error>
         }
       </mat-form-field>

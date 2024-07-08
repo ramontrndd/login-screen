@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { RegisterComponent } from '../register/register.component';
 
-
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
