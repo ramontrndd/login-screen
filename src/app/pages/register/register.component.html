@@ -5,8 +5,6 @@
     </mat-toolbar-row
     >
   </mat-toolbar>
-
-
   <mat-dialog-content class="animate__animated animate__zoomIn animate__faster">
   <form [formGroup]="registerForm">
     <div>
@@ -21,7 +19,7 @@
 
         }
       </mat-form-field>
-      
+
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input matInput formControlName="email"  placeholder="Ex: joao@seudominio.com" />
@@ -53,6 +51,7 @@
           <mat-error>
             @if (registerForm.controls.password.errors.required) {<span>Senha obrigátoria!</span>}
             @if (registerForm.controls.password.errors.minlength) {<span>Mínimo 6 dígitos</span>}
+            @if (registerForm.controls.password.errors.maxlength) {<span>Máximo 20 dígitos</span>}
           </mat-error>
         }
       </mat-form-field>
@@ -61,8 +60,8 @@
   </mat-dialog-content>
 
   <mat-dialog-actions align="center" class="btn-submit">
-    <button  mat-raised-button color="primary" type="submit" (click)="handleSubmit()" [disabled]="!(registerForm.valid && registerForm.dirty)">Registre-se</button>
-    <button  mat-raised-button color="primary" mat-dialog-close>Fechar</button>
+    <button  mat-raised-button color="accent" type="submit" (click)="handleSubmit()" [disabled]="!(registerForm.valid && registerForm.dirty)">Registre-se</button>
+    <button  mat-raised-button  mat-dialog-close>Fechar</button>
    </mat-dialog-actions>
 
 
