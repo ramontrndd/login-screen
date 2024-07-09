@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
       (response: any) => {
         this.ngxService.stop();
         this.cookie.set('token', response.token);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/home']);
         this.snackbarService.openSnackbar(
           'Login realizado com sucesso!',
           this.responseMessage

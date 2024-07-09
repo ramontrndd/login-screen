@@ -1,3 +1,8 @@
+body {
+  background-image: url(../../../assets/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 mat-card {
   display: flex;
   align-items: center;
@@ -21,9 +26,10 @@ mat-toolbar-row {
   align-items: center;
   justify-content: end;
 }
-.btn-submit {
-  margin-bottom: 3px;
-}
+
 .title-center {
   margin: auto;
+}
+.btn-submit {
+  margin-bottom: 20px;
 }
