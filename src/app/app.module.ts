@@ -4,16 +4,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { CookieService } from 'ngx-cookie-service';
 import { NgxUiLoaderConfig, NgxUiLoaderModule } from 'ngx-ui-loader';
 
 import { MaterialModule } from '../shared/material-module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { DashboardComponent } from './layout/dashboard/dashboard.component';
+import { FullComponent } from './layout/full/full.component';
+import { HeaderComponent } from './layout/header/header.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { CookieService } from 'ngx-cookie-service';
+
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   "bgsColor": "#4d6eff",
@@ -51,7 +54,9 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     HeaderComponent,
     RegisterComponent,
     ForgotPasswordComponent,
-    LoginComponent
+    HomeComponent,
+    DashboardComponent,
+    FullComponent
 
   ],
   imports: [

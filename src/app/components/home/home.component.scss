@@ -1,12 +1,9 @@
-
-:host {
-  display: flex;
-  justify-content: center;
-  margin-top: 200px;
-
-}
-
 mat-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: 210px;
   max-width: 350px;
   padding: 10px;
   text-align: center;
@@ -15,4 +12,13 @@ mat-card {
 }
 mat-form-field {
   width: 100%;
+}
+button {
+  margin: 5px;
+  padding: 10px;
+}
+mat-toolbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
