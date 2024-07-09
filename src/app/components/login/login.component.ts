@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 import { GlobalConstants } from '../../../shared/global-constants';
 import { SnackbarService } from '../../services/snackbar.service';
 import { UserService } from './../../services/user.service';
-import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -26,8 +26,6 @@ export class LoginComponent implements OnInit {
     private ngxService: NgxUiLoaderService,
     private snackbarService: SnackbarService,
     private cookie: CookieService
-
-
   ) {}
 
   ngOnInit():void {
@@ -45,11 +43,11 @@ export class LoginComponent implements OnInit {
       email: formData.email,
       password: formData.password
     }
-    
     this.UserService.login(data).subscribe((response:any ) => {
       this.ngxService.stop();
       this.router.navigate(['/']);
       this.cookie.set('token', response.token);
+      this.snackbarService.openSnackbar('Login realizado com sucesso!', this.responseMessage)
     },(error)=> {
       this.ngxService.stop();
       if(error.error?.message){

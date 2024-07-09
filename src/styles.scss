@@ -1,20 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./styles/variables.scss";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// STYLE VARIABLES
 
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background-image: url(./assets/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 // STYLE SNACK BAR
 
 .mat-mdc-snack-bar-container {
   &.green-snackbar {
-    --mdc-snackbar-container-color: #4d6eff !important;
+    --mdc-snackbar-container-color: #26a500 !important;
     --mat-mdc-snack-bar-button-color: #fff !important;
     --mdc-snackbar-supporting-text-color: #fff !important;
   }
   text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 700;
+  font-family: 'Oswald', sans-serif;
 }
 .mat-mdc-snack-bar-container {
   &.black-snackbar {
@@ -22,9 +34,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --mat-mdc-snack-bar-button-color: #fff !important;
     --mdc-snackbar-supporting-text-color: #fff !important;
   }
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
 }
 .mat-snack-bar-container {
   margin-right: auto !important;
