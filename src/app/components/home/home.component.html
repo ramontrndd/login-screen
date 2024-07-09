@@ -20,6 +20,12 @@
     <mat-card
       class="animate__animated animate__zoomIn animate__faster mat-elevation-z8"
     >
+      <mat-toolbar
+        color="primary"
+        style="border-radius: 10px 10px 0px 0px; margin-bottom: 15px"
+      >
+        <span class="title-center">Login</span>
+      </mat-toolbar>
       <mat-dialog-content>
         <form [formGroup]="loginForm">
           <div>
@@ -75,7 +81,7 @@
           (click)="handleSubmit()"
           [disabled]="!(loginForm.valid && loginForm.dirty)"
         >
-          Entrar
+          LOGIN
         </button>
       </mat-dialog-actions>
     </mat-card>
