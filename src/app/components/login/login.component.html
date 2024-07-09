@@ -1,0 +1,40 @@
+<mat-card>
+
+  <mat-dialog-content class="animate__animated animate__zoomIn animate__faster">
+    <form [formGroup]="loginForm">
+      <div>
+        <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email" required  placeholder="Insira seu email"/>
+        <mat-icon matSuffix>email</mat-icon>
+        @if (loginForm.controls.email.touched && loginForm.controls.email.invalid) { <mat-error>
+          @if (loginForm.controls.email.errors.required) {<span>Email é obrigatório!</span>}
+          @if (loginForm.controls.email.errors.pattern) {<span>Este campo é inválido</span>} </mat-error> }
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input type="password" matInput formControlName="password" required />
+          <mat-icon matSuffix>lock</mat-icon>
+          @if (loginForm.controls.password.touched && loginForm.controls.password.invalid) { <mat-error>
+            @if (loginForm.controls.password.errors.required) {<span>Campo obrigatório!</span>}
+            @if (loginForm.controls.password.errors.minlength) {<span>Mínimo 5 caracteres</span>}
+            @if (loginForm.controls.password.errors.maxlength) {<span>Máximo 20 caracteres! </span>}
+          </mat-error>}
+          </mat-form-field>
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="center">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      (click)="handleSubmit()"
+      [disabled]="!(loginForm.valid && loginForm.dirty)"
+
+    >
+      Entrar
+    </button>
+  </mat-dialog-actions>
+</mat-card>
+

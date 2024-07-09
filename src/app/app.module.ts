@@ -4,14 +4,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { NgxUiLoaderConfig, NgxUiLoaderModule, PB_DIRECTION, SPINNER } from 'ngx-ui-loader';
+import { NgxUiLoaderConfig, NgxUiLoaderModule } from 'ngx-ui-loader';
 
 import { MaterialModule } from '../shared/material-module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { CookieService } from 'ngx-cookie-service';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   "bgsColor": "#4d6eff",
@@ -43,16 +45,13 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   "maxTime": -1,
   "minTime": 300
 }
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     RegisterComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    LoginComponent
 
   ],
   imports: [
@@ -67,7 +66,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    [CookieService]
   ],
   bootstrap: [AppComponent]
 })
