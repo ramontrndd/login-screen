@@ -1,0 +1,11 @@
+@import "../../../styles/variables.scss";
+
+button {
+  margin: 5px;
+  padding: 10px;
+}
+mat-toolbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
