@@ -1,4 +1,26 @@
 <main>
-  <mat-toolbar color="primary" class="mat-elevation-z3">
-  </mat-toolbar>
+  <section>
+    <nav class="container">
+      <mat-toolbar color="primary" class="mat-elevation-z3">
+        <div class="nav-content">
+          <span class="header-text__name"> Gerenciamento de usuários </span>
+          <mat-icon style="margin-left: 10px">admin_panel_settings</mat-icon>
+        </div>
+
+        <div class="nav-exit">
+          <button [matMenuTriggerFor]="profile" mat-icon-button>
+            <mat-icon>account_circle</mat-icon>
+          </button>
+          <mat-menu #profile="matMenu">
+            <button mat-menu-item (click)="changePassword()">
+              <mat-icon>lock_reset</mat-icon>Mudar Senha
+            </button>
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>exit_to_app</mat-icon>Sair
+            </button>
+          </mat-menu>
+        </div>
+      </mat-toolbar>
+    </nav>
+  </section>
 </main>

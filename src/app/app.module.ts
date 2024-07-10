@@ -11,12 +11,14 @@ import { MaterialModule } from '../shared/material-module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { ConfirmationComponent } from './dialog/confirmation/confirmation.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { FullComponent } from './layout/full/full.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { tokenInterceptorInterceptor } from './services/token-interceptor.interceptor';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
@@ -57,7 +59,9 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     ForgotPasswordComponent,
     HomeComponent,
     DashboardComponent,
-    FullComponent
+    FullComponent,
+    ConfirmationComponent,
+    ChangePasswordComponent
 
   ],
   imports: [
