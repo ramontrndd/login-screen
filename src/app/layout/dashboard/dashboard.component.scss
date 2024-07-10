@@ -1,0 +1,13 @@
+mat-card {
+  padding: 10px;
+  margin: 10px;
+  > b,
+  span {
+    text-transform: uppercase;
+    text-align: center;
+  }
+}
+td,
+th {
+  text-align: center;
+}
