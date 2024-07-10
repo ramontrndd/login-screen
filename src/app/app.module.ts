@@ -14,11 +14,10 @@ import { HomeComponent } from './components/home/home.component';
 import { ConfirmationComponent } from './dialog/confirmation/confirmation.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { FullComponent } from './layout/full/full.component';
-import { HeaderComponent } from './layout/header/header.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { tokenInterceptorInterceptor } from './services/token-interceptor.interceptor';
-import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
@@ -54,7 +53,6 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     RegisterComponent,
     ForgotPasswordComponent,
     HomeComponent,
