@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private UserService: UserService,
+    private userService: UserService,
     private ngxService: NgxUiLoaderService,
     private snackbarService: SnackbarService,
     private cookie: CookieService,
@@ -31,6 +31,14 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    if(this.cookie.get('token') !=null) {
+      this.userService.checkToken().subscribe((response: any)=> {
+        this.router.navigate(['/home']);
+      },(error:any)=> {
+        console.log(error);
+      })
+
+  }
     this.loginForm = this.formBuilder.group({
       email: [
         null,
@@ -54,7 +62,7 @@ export class HomeComponent implements OnInit {
       email: formData.email,
       password: formData.password,
     };
-    this.UserService.login(data).subscribe(
+    this.userService.login(data).subscribe(
       (response: any) => {
         this.ngxService.stop();
         this.cookie.set('token', response.token);

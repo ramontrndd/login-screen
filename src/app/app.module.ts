@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,6 +16,7 @@ import { FullComponent } from './layout/full/full.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { tokenInterceptorInterceptor } from './services/token-interceptor.interceptor';
 
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
@@ -72,7 +73,12 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   ],
   providers: [
     provideAnimationsAsync(),
-    [CookieService]
+    [CookieService],
+    HttpClientModule, {
+      provide: HTTP_INTERCEPTORS,
+      useClass: tokenInterceptorInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

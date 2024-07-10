@@ -15,6 +15,10 @@ const routes: Routes = [
     canActivate: [RouteGuardService],
     data: { expectedRole: ['user', 'admin'] },
   },
+  {
+    path: '**',
+    redirectTo: '/',
+  }
 ];
 
 @NgModule({
