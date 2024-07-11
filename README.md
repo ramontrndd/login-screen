@@ -5,6 +5,13 @@
 </div>
 <hr>
 
+### ADMIN LOGIN
+
+>Importante - O deploy do backend da aplicação foi feita no render, portanto aguarde 30 segundos para o primeiro acesso, para que o serviço seja iniciado.
+
+`email: admin@login.com`<br>
+`senha: admin `
+
 ### Link do projeto 
 https://ramontrndd.github.io/login-screen
 <hr>
